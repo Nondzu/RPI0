@@ -1,0 +1,203 @@
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=ON \
+    -D ENABLE_PRECOMPILED_HEADERS=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.0.0/modules \
+    -D BUILD_EXAMPLES=ON ..
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D PYTHON2_PACKAGES_PATH=~/.virtualenvs/cv/lib/python2.7/site-packages \
+    -D PYTHON2_LIBRARY=/usr/local/Cellar/python/2.7.10/Frameworks/Python.framework/Versions/2.7/bin \
+    -D PYTHON2_INCLUDE_DIR=/usr/local/Frameworks/Python.framework/Headers \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=OFF \
+    -D BUILD_EXAMPLES=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+    -D WITH_LIBV4L=ON \
+    -D WITH_V4L=OFF ..
+
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D ENABLE_PRECOMPILED_HEADERS=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=OFF \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.0.0/modules \
+    -D BUILD_EXAMPLES=OFF \
+    -D WITH_LIBV4L=ON \
+	-D WITH_FFMPEG=ON \
+	-D BUILD_TESTS=OFF \
+	-D WITH_CUDA=OFF \
+    -D WITH_V4L=ON ..
+
+	
+	v4l2-ctl --stream-mmap=3 --stream-count=1 --stream-to=/home/pi/te22st.jpg
+
+CMAKE Opencv 3.4.0
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D BUILD_WITH_DEBUG_INFO=OFF \
+	-D BUILD_DOCS=OFF \
+	-D BUILD_EXAMPLES=OFF \
+	-D BUILD_TESTS=OFF \
+	-D BUILD_opencv_ts=OFF \
+	-D BUILD_PERF_TESTS=OFF \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.2.0/modules \
+	-D ENABLE_NEON=ON \
+	-D WITH_LIBV4L=ON \
+        ../
+		
+		
+mod
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D BUILD_WITH_DEBUG_INFO=OFF \
+	-D BUILD_DOCS=OFF \
+	-D BUILD_EXAMPLES=OFF \
+	-D BUILD_TESTS=OFF \
+	-D BUILD_opencv_ts=OFF \
+	-D BUILD_PERF_TESTS=OFF \
+	-D INSTALL_C_EXAMPLES=OFF \
+	-D INSTALL_PYTHON_EXAMPLES=OFF \
+	-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.0/modules \
+	-D ENABLE_NEON=ON \
+	-D WITH_LIBV4L=ON \
+	-D WITH_V4L=ON \
+        ../
+
+		
+		
+		
+		
+		
+		
+		
+In file included from /home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg.cpp:45:0:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘void CvCapture_FFMPEG::close()’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:317:36: error: ‘avcodec_free_frame’ was not declared in                                                                         this scope
+         avcodec_free_frame(&picture);
+                                    ^
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool CvCapture_FFMPEG::open(const                                                                         char*)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:632:43: error: ‘avcodec_alloc_frame’ was not declared i                                                                        n this scope
+             picture = avcodec_alloc_frame();
+                                           ^
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:635:41: error: ‘PIX_FMT_BGR24’ was not declared in this                                                                         scope
+                     avpicture_get_size( PIX_FMT_BGR24,
+                                         ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool CvCapture_FFMPEG::retrieveFra                                                                        me(int, unsigned char**, int*, int*, int*, int*)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:738:67: error: ‘PIX_FMT_RGB24’ was not declared in this                                                                         scope
+     avpicture_fill((AVPicture*)&rgb_picture, rgb_picture.data[0], PIX_FMT_RGB24,
+                                                                   ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:756:17: error: ‘PIX_FMT_BGR24’ was not declared in this                                                                         scope
+                 PIX_FMT_BGR24,
+                 ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In function ‘AVFrame* icv_alloc_picture_FFMPEG(int, in                                                                        t, int, bool)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1110:35: error: ‘avcodec_alloc_frame’ was not declared                                                                         in this scope
+     picture = avcodec_alloc_frame();
+                                   ^
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1113:33: error: ‘PixelFormat’ was not declared in this                                                                         scope
+     size = avpicture_get_size( (PixelFormat) pix_fmt, width, height);
+                                 ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1104:47: warning: unused parameter ‘pix_fmt’ [-Wunused-                                                                        parameter]
+ static AVFrame * icv_alloc_picture_FFMPEG(int pix_fmt, int width, int height, bool alloc)
+                                               ^~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In function ‘AVStream* icv_add_video_stream_FFMPEG(AVF                                                                        ormatContext*, AVCodecID, int, int, int, double, int)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1230:19: error: ‘PixelFormat’ was not declared in this                                                                         scope
+     c->pix_fmt = (PixelFormat) pixel_format;
+                   ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1133:62: warning: unused parameter ‘pixel_format’ [-Wun                                                                        used-parameter]
+                                              double fps, int pixel_format)
+                                                              ^~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool CvVideoWriter_FFMPEG::writeFr                                                                        ame(const unsigned char*, int, int, int, int, int)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1405:26: error: ‘PIX_FMT_BGR24’ was not declared in thi                                                                        s scope
+     if (input_pix_fmt == PIX_FMT_BGR24) {
+                          ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1410:31: error: ‘PIX_FMT_GRAY8’ was not declared in thi                                                                        s scope
+     else if (input_pix_fmt == PIX_FMT_GRAY8) {
+                               ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1423:25: error: ‘PixelFormat’ was not declared in this                                                                         scope
+                        (PixelFormat)input_pix_fmt, width, height);
+                         ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1447:25: error: ‘PixelFormat’ was not declared in this                                                                         scope
+                        (PixelFormat)input_pix_fmt, width, height);
+                         ^~~~~~~~~~~
+In file included from /home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg.cpp:45:0:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool CvVideoWriter_FFMPEG::open(co                                                                        nst char*, int, double, int, int, bool)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1604:25: error: ‘PIX_FMT_BGR24’ was not declared in thi                                                                        s scope
+         input_pix_fmt = PIX_FMT_BGR24;
+                         ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1607:25: error: ‘PIX_FMT_GRAY8’ was not declared in thi                                                                        s scope
+         input_pix_fmt = PIX_FMT_GRAY8;
+                         ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1683:25: error: ‘PIX_FMT_YUV422P’ was not declared in t                                                                        his scope
+         codec_pix_fmt = PIX_FMT_YUV422P;
+                         ^~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1687:25: error: ‘PIX_FMT_YUVJ420P’ was not declared in                                                                         this scope
+         codec_pix_fmt = PIX_FMT_YUVJ420P;
+                         ^~~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1691:42: error: ‘PIX_FMT_GRAY8’ was not declared in thi                                                                        s scope
+         codec_pix_fmt = input_pix_fmt == PIX_FMT_GRAY8 ||
+                                          ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1692:42: error: ‘PIX_FMT_GRAY16LE’ was not declared in                                                                         this scope
+                         input_pix_fmt == PIX_FMT_GRAY16LE ||
+                                          ^~~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1693:42: error: ‘PIX_FMT_GRAY16BE’ was not declared in                                                                         this scope
+                         input_pix_fmt == PIX_FMT_GRAY16BE ? input_pix_fmt : PIX_FMT_YUV420P;
+                                          ^~~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1693:77: error: ‘PIX_FMT_YUV420P’ was not declared in t                                                                        his scope
+                         input_pix_fmt == PIX_FMT_GRAY16BE ? input_pix_fmt : PIX_FMT_YUV420P;
+                                                                             ^~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: At global scope:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1922:119: error: ‘PixelFormat’ has not been declared
+     static AVStream* addVideoStream(AVFormatContext *oc, CV_CODEC_ID codec_id, int w, int h, int bitrate, double fps                                                                        , PixelFormat pixel_format);
+                                                                                                                                                                                               ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:1969:134: error: ‘PixelFormat’ has not been declared
+ AVStream* OutputMediaStream_FFMPEG::addVideoStream(AVFormatContext *oc, CV_CODEC_ID codec_id, int w, int h, int bitr                                                                        ate, double fps, PixelFormat pixel_format)
+                                                                                                                                                                                                              ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In static member function ‘static AVStream* OutputMedi                                                                        aStream_FFMPEG::addVideoStream(AVFormatContext*, AVCodecID, int, int, int, double, int)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2047:18: error: invalid conversion from ‘int’ to ‘AVPix                                                                        elFormat’ [-fpermissive]
+     c->pix_fmt = pixel_format;
+                  ^~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool OutputMediaStream_FFMPEG::ope                                                                        n(const char*, int, int, double)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2107:5: error: ‘PixelFormat’ was not declared in this s                                                                        cope
+     PixelFormat codec_pix_fmt = PIX_FMT_YUV420P;
+     ^~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2111:99: error: ‘codec_pix_fmt’ was not declared in thi                                                                        s scope
+     video_st_ = addVideoStream(oc_, codec_id, width, height, width * height * bitrate_scale, fps, codec_pix_fmt);
+                                                                                                   ^~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool InputMediaStream_FFMPEG::open                                                                        (const char*, int*, int*, int*, int*)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2316:18: error: ‘PIX_FMT_YUV420P’ was not declared in t                                                                        his scope
+             case PIX_FMT_YUV420P:
+                  ^~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2320:18: error: ‘PIX_FMT_YUV422P’ was not declared in t                                                                        his scope
+             case PIX_FMT_YUV422P:
+                  ^~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2324:18: error: ‘PIX_FMT_YUV444P’ was not declared in t                                                                        his scope
+             case PIX_FMT_YUV444P:
+                  ^~~~~~~~~~~~~~~
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp: In member function ‘bool OutputMediaStream_FFMPEG::ope                                                                        n(const char*, int, int, double)’:
+/home/pi/opencv-3.0.0/modules/videoio/src/cap_ffmpeg_impl.hpp:2150:41: warning: ignoring return value of ‘int avforma                                                                        t_write_header(AVFormatContext*, AVDictionary**)’, declared with attribute warn_unused_result [-Wunused-result]
+         avformat_write_header(oc_, NULL);
+                                         ^
+modules/videoio/CMakeFiles/opencv_videoio.dir/build.make:158: recipe for target 'modules/videoio/CMakeFiles/opencv_vi                                                                        deoio.dir/src/cap_ffmpeg.cpp.o' failed
+make[2]: *** [modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_ffmpeg.cpp.o] Error 1
+CMakeFiles/Makefile2:2729: recipe for target 'modules/videoio/CMakeFiles/opencv_videoio.dir/all' failed
+make[1]: *** [modules/videoio/CMakeFiles/opencv_videoio.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 42%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/hdr_common.cpp.o
+[ 42%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/inpaint.cpp.o
+[ 42%] Linking CXX shared library ../../lib/libopencv_video.so
+[ 42%] Built target opencv_video
+[ 42%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/merge.cpp.o
+[ 42%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/npr.cpp.o
+[ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning.cpp.o
+[ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning_impl.cpp.o
+[ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/tonemap.cpp.o
+[ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/opencl_kernels_photo.cpp.o
+[ 44%] Linking CXX shared library ../../lib/libopencv_photo.so
+[ 44%] Built target opencv_photo
+Makefile:149: recipe for target 'all' failed
+make: *** [all] Error 2
